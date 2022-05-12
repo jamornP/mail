@@ -1,8 +1,8 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/lib/phpmailer/PHPMailerAutoload.php");?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/mail/phpmailer/PHPMailerAutoload.php");?>
 <?php
 header('Content-Type: text/html; charset=utf-8');
-
-$mail = new PHPMailer;
+function sentMail($email_receiver){
+	$mail = new PHPMailer;
 $mail->CharSet = "utf-8";
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
@@ -11,16 +11,16 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 
 
-$gmail_username = "xxxx@gmail.com"; // gmail ที่ใช้ส่ง
-$gmail_password = "xxxx"; // รหัสผ่าน gmail
+$gmail_username = "jamorn.pe@kmitl.ac.th"; // gmail ที่ใช้ส่ง
+$gmail_password = "Ja20093004"; // รหัสผ่าน gmail
 // ตั้งค่าอนุญาตการใช้งานได้ที่นี่ https://myaccount.google.com/lesssecureapps?pli=1
 
 
-$sender = "IBS Support"; // ชื่อผู้ส่ง
-$email_sender = "noreply@ibsone.com"; // เมล์ผู้ส่ง 
-$email_receiver = "aun.puri@gmail.com"; // เมล์ผู้รับ ***
+$sender = "IT Support Science@KMITL"; // ชื่อผู้ส่ง
+$email_sender = "noreply@kmitl.ac.th"; // เมล์ผู้ส่ง 
+// $email_receiver = "sakda.tr@kmitl.ac.th"; // เมล์ผู้รับ ***
 
-$subject = "เปลี่ยนรหัสผ่าน"; // หัวข้อเมล์
+$subject = "ใบประกาศ"; // หัวข้อเมล์
 
 
 $mail->Username = $gmail_username;
@@ -37,20 +37,11 @@ $email_content = "
 			<title>ทดสอบการส่ง Email</title>
 		</head>
 		<body>
-			<h1 style='background: #3b434c;padding: 10px 0 20px 10px;margin-bottom:10px;font-size:30px;color:white;' >
-				<img src='http://pngimg.com/uploads/apple_logo/apple_logo_PNG19670.png' style='width: 80px;'>
-				APPLE
-			</h1>
+			
 			<div style='padding:20px;'>
-				<div style='text-align:center;margin-bottom:50px;'>
-					<img src='http://cdn.wccftech.com/wp-content/uploads/2017/02/Apple-logo.jpg' style='width:100%' />					
-				</div>
-				<div>				
-					<h2>การกู้รหัสผ่าน สำหรับ Apple : <strong style='color:#0000ff;'></strong></h2>
-					<a href='#' target='_blank'>
-						<h1><strong style='color:#3c83f9;'> >> กรุณาคลิ๊กที่นี่ เพื่อตั้งรหัสผ่านใหม่<< </strong> </h1>
-					</a>
-				</div>
+				
+					<img src='https://www.science.kmitl.ac.th/apiUpload/newsPicture/iFvgKUJqL5KP1651216592872/fT4ydrDcuWr31651216592887.png' style='width:100%' />					
+				
 				<div style='margin-top:30px;'>
 					<hr>
 					<address>
@@ -84,6 +75,8 @@ if($email_receiver){
 		echo "ระบบได้ส่งข้อความไปเรียบร้อย";
 	}	
 }
+}
+
 
 
 
